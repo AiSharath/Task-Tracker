@@ -1,0 +1,98 @@
+/* Hallmark · genre: modern-minimal · macrostructure: Centered (Coral) · theme: Coral */
+
+.hero-container {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: var(--space-3xl) var(--space-lg) var(--space-2xl);
+}
+
+.hero-container .main-content {
+  max-width: 42rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-container .main-content h2 {
+  font-size: var(--text-display);
+  margin-bottom: var(--space-md);
+}
+
+.hero-container .main-content p {
+  font-size: var(--text-lg);
+  color: var(--color-ink-2);
+  margin: 0;
+}
+
+.hero-container .features {
+  margin-top: var(--space-3xl);
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 0.85fr;
+  gap: var(--space-lg);
+}
+
+.hero-container .features > div {
+  padding: var(--space-lg);
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-card);
+  background: var(--color-paper-2);
+}
+
+.hero-container .features h4 {
+  font-size: var(--text-md);
+  margin-bottom: var(--space-xs);
+}
+
+.hero-container .features p {
+  font-size: var(--text-sm);
+  color: var(--color-ink-2);
+  margin: 0;
+  line-height: 1.55;
+}
+
+.hero-container .try-it {
+  margin-top: var(--space-3xl);
+  text-align: center;
+  padding-top: var(--space-2xl);
+  border-top: 1px solid var(--color-rule);
+}
+
+.hero-container .try-it h4 {
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-2xs);
+}
+
+.hero-container .try-it p {
+  color: var(--color-ink-2);
+  margin: 0 0 var(--space-lg);
+}
+
+.hero-container .try-it button {
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: var(--space-sm) var(--space-xl);
+  font-size: var(--text-md);
+  font-weight: 500;
+  transition: background var(--dur-short) var(--ease-out), transform var(--dur-short) var(--ease-out);
+}
+
+.hero-container .try-it button:hover {
+  background: var(--color-accent-hover);
+}
+
+.hero-container .try-it button:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .hero-container .features {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-container { padding: var(--space-2xl) var(--space-md) var(--space-xl); }
+  .hero-container .main-content h2 { font-size: clamp(1.9rem, 8vw, 2.5rem); }
+}

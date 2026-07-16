@@ -1,0 +1,87 @@
+
+.form-container {
+  max-width: 26rem;
+  margin: var(--space-3xl) auto;
+  padding: var(--space-2xl) var(--space-xl);
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-card);
+  background: var(--color-paper);
+}
+
+.form-container h2 {
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-lg);
+  text-align: center;
+}
+
+.form-container .form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.form-container .input-fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.form-container input {
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-input);
+  background: var(--color-paper-2);
+  color: var(--color-ink);
+  transition: border-color var(--dur-short) var(--ease-out);
+}
+
+.form-container input::placeholder { color: var(--color-ink-2); opacity: 0.6; }
+
+.form-container input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-soft);
+}
+
+.form-container button[type="submit"] {
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: var(--space-sm) var(--space-lg);
+  font-size: var(--text-md);
+  font-weight: 500;
+  transition: background var(--dur-short) var(--ease-out);
+}
+
+.form-container button[type="submit"]:hover { background: var(--color-accent-hover); }
+.form-container button[type="submit"]:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.error-message {
+  color: oklch(52% 0.19 25);
+  font-size: var(--text-sm);
+  margin: 0;
+}
+
+.login-link {
+  margin-top: var(--space-lg);
+  text-align: center;
+  font-size: var(--text-sm);
+  color: var(--color-ink-2);
+}
+
+.login-link a {
+  color: var(--color-accent);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+@media (max-width: 480px) {
+  .form-container { margin: var(--space-xl) var(--space-sm); padding: var(--space-xl) var(--space-lg); }
+}

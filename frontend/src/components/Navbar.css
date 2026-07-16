@@ -1,0 +1,76 @@
+/* Hallmark · genre: modern-minimal · component: nav (N5 floating pill) · theme: Coral */
+
+.navbar {
+  position: sticky;
+  top: var(--space-md);
+  z-index: var(--z-sticky);
+  max-width: 68rem;
+  margin: var(--space-md) auto 0;
+  padding: var(--space-xs) var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: color-mix(in oklch, var(--color-paper) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 1px 2px oklch(20% 0.01 50 / 0.06);
+}
+
+.navbar .heading {
+  font-family: var(--font-outlier);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+  cursor: pointer;
+  margin: 0;
+  padding: var(--space-2xs) var(--space-sm);
+}
+
+.navbar .buttons {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.navbar button {
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: var(--space-xs) var(--space-lg);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  transition: background var(--dur-short) var(--ease-out),
+              color var(--dur-short) var(--ease-out),
+              border-color var(--dur-short) var(--ease-out);
+}
+
+.navbar button:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.navbar .sign-in {
+  background: transparent;
+  color: var(--color-ink-2);
+  border: 1px solid transparent;
+}
+.navbar .sign-in:hover { color: var(--color-ink); background: var(--color-paper-2); }
+
+.navbar .sign-up {
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+}
+.navbar .sign-up:hover { background: var(--color-accent-hover); }
+
+hr { display: none; }
+
+@media (max-width: 480px) {
+  .navbar {
+    margin: var(--space-sm) var(--space-sm) 0;
+    padding: var(--space-2xs) var(--space-sm);
+  }
+  .navbar .heading { padding-inline: var(--space-2xs); }
+  .navbar button { padding: var(--space-xs) var(--space-md); white-space: nowrap; }
+}
