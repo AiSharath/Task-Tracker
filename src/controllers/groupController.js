@@ -22,6 +22,36 @@ const createGroup=async(req,res)=>{
     }
 }
 
+const updateGroup=async(req,res)=>{
+    try{
+        const {id}=req.params
+        if(!mongoose.Types.ObjectId.findById(id)){
+            return res.status(400).json({message:"Invalid group id"})
+        }
+
+        const group=Group.findById(id)
+
+        if(!group){
+            return res.status(404).json({message:"Group was not found"})
+        }
+
+        if (task.userId.toString() !== req.user.id && req.user.role !== "admin") {
+            return res.status(403).json({ message: "Not authorized" });
+        }
+
+        const{groupName,description}=req.body
+        const updated=await Group.findByIdAndUpdate(
+            id,
+            {groupName,description},
+            { new: true, runValidators: true },
+        )
+        res.json(updated)
+    }catch(error){
+        res.status(500).json({message:"Group updation error"})
+    }
+}
+
+
 const deleteGroup=async(req,res)=>{
     try{
         const {id}=req.params
@@ -48,5 +78,6 @@ const deleteGroup=async(req,res)=>{
 
 module.exports={
     createGroup,
+    updateGroup,
     deleteGroup
 }
