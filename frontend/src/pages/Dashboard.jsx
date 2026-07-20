@@ -231,6 +231,30 @@ function Dashboard() {
                         </div>
                     </>
                 )}
+
+                {activeTab=="group" && (
+                <>
+                    <div className="group">
+                        <div className="group-icon">
+                            <img url=""/>
+                        </div>
+                        <div className="group-content">
+                            <span className="group-name">
+                                <h3>Group Name</h3>
+                            </span>
+                            <span className="group-desc">
+                                <p>
+                                    Group description
+                                </p>
+                            </span>
+                            <span className="open-btn">
+                                <button>Open</button>
+                            </span>
+                        </div>
+                    </div>    
+                </>
+                )
+                }
             </div>
         </div>
     )
