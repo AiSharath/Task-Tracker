@@ -25,17 +25,17 @@ const createGroup=async(req,res)=>{
 const updateGroup=async(req,res)=>{
     try{
         const {id}=req.params
-        if(!mongoose.Types.ObjectId.findById(id)){
+        if(!mongoose.Types.ObjectId.isValid(id)){
             return res.status(400).json({message:"Invalid group id"})
         }
 
-        const group=Group.findById(id)
+        const group=await Group.findById(id)
 
         if(!group){
             return res.status(404).json({message:"Group was not found"})
         }
 
-        if (task.userId.toString() !== req.user.id && req.user.role !== "admin") {
+        if (group.groupLeader.toString() !== req.user.id && req.user.role !== "admin") {
             return res.status(403).json({ message: "Not authorized" });
         }
 
@@ -45,9 +45,10 @@ const updateGroup=async(req,res)=>{
             {groupName,description},
             { new: true, runValidators: true },
         )
-        res.json(updated)
+        return res.json(updated)
     }catch(error){
-        res.status(500).json({message:"Group updation error"})
+        console.error("updateGroup error:", error)
+        return res.status(500).json({message:"Group updation error"})
     }
 }
 
@@ -57,12 +58,12 @@ const deleteGroup=async(req,res)=>{
         const {id}=req.params
 
         if(!mongoose.Types.ObjectId.isValid(id)){
-            res.status(400).json({message:"Not a valid Group Id"})
+            return res.status(400).json({message:"Not a valid Group Id"})
         }
 
         const group=await Group.findById(id)
         if(!group){
-            res.status(404).json({message:"Group not found"})
+            return res.status(404).json({message:"Group not found"})
         }
 
         if (group.groupLeader.toString() !== req.user.id && req.user.role !== "admin") {
@@ -72,7 +73,8 @@ const deleteGroup=async(req,res)=>{
         await Group.findByIdAndDelete(id);
         return res.json({ message: "Group deleted" });
     }catch(error){
-        res.status(500).json({message:"Group deletion error"})
+        console.error("deleteGroup error:", error)
+        return res.status(500).json({message:"Group deletion error"})
     }
 }
 

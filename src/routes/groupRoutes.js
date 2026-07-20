@@ -5,8 +5,9 @@ const authMiddleware = require('../middleware/authMiddleware')
 const router=express.Router()
 router.use(authMiddleware)
 
-router.post("/create",createGroup)
-router.put("/:id",updateGroup)
-router.delete("/:id",deleteGroup)
+router.post("/", createGroup)
+router.post("/create", createGroup)
+router.put("/:id", updateGroup)
+router.delete("/:id", deleteGroup)
 
 module.exports=router

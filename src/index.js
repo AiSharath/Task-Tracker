@@ -5,6 +5,7 @@ const cors = require("cors")
 const authRoutes = require('./routes/authRoutes')
 const taskRoutes = require('./routes/taskRoutes')
 const userRoutes = require('./routes/userRoutes')
+const groupRoutes=require('./routes/groupRoutes')
 
 dotenv.config()
 
@@ -25,6 +26,8 @@ app.use((req, res, next) => {
 app.use('/api/auth', authRoutes)
 app.use('/api/tasks', taskRoutes)
 app.use('/api/users', userRoutes)
+app.use('/api/group', groupRoutes)
+app.use('/api/groups', groupRoutes)
 
 const PORT = process.env.PORT || 5000
 
