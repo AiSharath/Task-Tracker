@@ -221,10 +221,14 @@
 
 .group-icon{
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width:100px;
-  height:100px;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 999px;
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+  border: 1px solid var(--color-rule);
 }
 
 
@@ -257,6 +261,45 @@
   border: 1px solid var(--color-rule);
   background: var(--color-accent);
   color: var(--color-accent-ink);
+}
+
+.group-members {
+  margin-top: var(--space-xs);
+  border-top: 1px solid var(--color-rule);
+  padding-top: var(--space-sm);
+}
+
+.group-members h4 {
+  margin: 0 0 var(--space-xs);
+  font-size: var(--text-sm);
+  color: var(--color-ink-2);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.group-members ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.group-members li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-2xs) var(--space-xs);
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-input);
+  background: var(--color-paper-2);
+}
+
+.member-role {
+  font-size: var(--text-xs);
+  color: var(--color-ink-2);
+  text-transform: capitalize;
 }
 
 
